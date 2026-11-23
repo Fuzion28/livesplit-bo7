@@ -1,4 +1,4 @@
-# Livesplit BO7 by Redouan B & Fuzion28 (v1.0.4-alpha)
+# Livesplit BO7 by Redouan B & Fuzion28 (v1.0.5-alpha)
 
 ![Livesplit BO7](preview.png)
 
@@ -36,7 +36,16 @@ In the pause menu you can switch between:
 - RNG: PATCHED  = fixed outcomes to practise routes faster:
     Totenreich:    fish spot, ravager spawns, crate (always the AA shell),
                    the 3 symbols and the radio code are fixed.
-    Astra Malorum: the O.S.C.A.R. planet code is always 3-4-6.
+    Astra Malorum:
+      1. Absolute Zero: a free Cryo Freeze ammo mod drops at the start
+      2. LGM-1 valves: always the same route
+      3. Aberrant Wiring: always the street lamp next to the ammo crate behind Quick Revive
+      4. O.S.C.A.R. planet code: always 3-4-6
+      5. Orrery: always Mars SW, Saturn NW, Neptune SE (also shown under STATISTICS in the pause menu)
+      6. Mars coordinate (telescope DEC / keypad): always 5252
+      7. Book step: always 1 turn
+      8. Mars pillars (organ order): always the same order
+      9. Neptune damage time-cap: off
 While PATCHED is on, the HUD shows an RNG tag. Runs made with RNG: PATCHED are
 practice runs and are not valid for leaderboards.
 Changes take effect from the next run (START SPEEDRUN); the crate changes at once.

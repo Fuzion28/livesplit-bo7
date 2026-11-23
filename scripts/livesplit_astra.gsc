@@ -97,6 +97,8 @@ zm_ruby_main()
         return;
     }
     setdvar( @"zmm_rngon", "1" );
+    // pause menu (STATISTICS): the patched orrery directions from the start of the run
+    setdvar( "ls_orrery", "Mars SW|Saturn NW|Neptune SE" );
     level thread zm_ruby_no_time_cap();
     // where the run starts (for the Aberrant Wiring lamp)
     level.zmr_spawnpos = level.players[ 0 ].origin;
@@ -190,6 +192,7 @@ zm_ruby_orrery()
     else
     {
         zm_ruby_log( "ORRERY not patched: directions not recognised" );
+        setdvar( "ls_orrery", "random (not patched this run)" );
         return;
     }
     wait 1;

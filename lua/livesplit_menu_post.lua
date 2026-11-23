@@ -543,20 +543,23 @@ local function statsStep()
         if S.stats then pcall(call,S.stats,"closeTree");S.stats=nil;S.statsRaw=nil end
         return
     end
-    if S.stats and raw==S.statsRaw then return end
+    -- Astra: orrery directions (set by livesplit_astra.gsc) as an extra line, only in the pause menu
+    local orr=read("ls_orrery") or ""
+    if S.stats and raw==S.statsRaw and orr==S.statsOrr then return end
     local parent=displayParent()
     if not parent then return end
     if not S.stats then
         S.stats=newElement("UIElement")
         call(S.stats,"setPriority",1001);passive(S.stats);call(parent,"addElement",S.stats)
-        call(S.stats,"SetAnchorsAndPosition",0,1,0,1,560,900,120,290)
+        call(S.stats,"SetAnchorsAndPosition",0,1,0,1,560,900,120,316)
         S.statsL={}
         S.statsL[1]=label(S.stats,6,0,320,24,18,0x16a6ff,true)
         for i=2,5 do S.statsL[i]=label(S.stats,6,4+(i-1)*24,320,22,15,0xffffff,true) end
-        S.statsL[6]=label(S.stats,6,4+5*24+6,320,20,13,0x3373f4,true)
-        call(S.statsL[6],"setText","Livesplit BO7 1.0.4 alpha - by Redouan B & Fuzion28")
+        S.statsL[6]=label(S.stats,6,4+6*24+6,320,20,13,0x3373f4,true)
+        S.statsL[7]=label(S.stats,6,4+5*24,320,22,15,0xffc800,true)
+        call(S.statsL[6],"setText","Livesplit BO7 1.0.5 alpha - by Redouan B & Fuzion28")
     end
-    S.statsRaw=raw
+    S.statsRaw=raw;S.statsOrr=orr
     local v={}
     for x in string.gmatch(raw,"[^|]+") do v[#v+1]=x end
     local play=math.floor((tonumber(v[5]) or 0)/60000)
@@ -565,6 +568,7 @@ local function statsStep()
     call(S.statsL[3],"setText","PB: "..fmtRun(v[3]))
     call(S.statsL[4],"setText","Average (finished): "..fmtRun(v[4]))
     call(S.statsL[5],"setText","Play time: "..math.floor(play/60).." h "..(play%60).." min")
+    call(S.statsL[7],"setText",orr~="" and ("Orrery: "..orr:gsub("|","   ")) or "")
 end
 -- font test: once per game start every font of the game, numbered and in its own font, for 30 s (top left)
 local function fontStep()

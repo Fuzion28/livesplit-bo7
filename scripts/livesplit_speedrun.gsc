@@ -104,6 +104,8 @@ autoexec init()
     }
     // set by zm_locust_extra.gsc: "1" when a fix is active this match (the watermark then says RNG)
     setdvar( @"zmm_rngon", "0" );
+    // orrery line in the pause menu: only filled by livesplit_astra.gsc (Astra + RNG: PATCHED)
+    setdvar( "ls_orrery", "" );
     // sub-splits per quest step, the PB ghost and the Glocke counter, drawn by zm_mod_menu_post.lua
     setdvar( @"zmm_sub", "" );
     setdvar( @"zmm_ghost", "" );
